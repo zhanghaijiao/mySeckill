@@ -18,7 +18,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 
 /**
@@ -27,13 +29,30 @@ import java.util.List;
 @Controller
 @RequestMapping("/seckill")//url:模块/资源/{id}/资源
 public class SeckillController {
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+    private final  Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private SeckillService seckillService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String lit(Model model) {
+    public String lit(HttpServletRequest request,Model model) {
+        System.out.println("****************");
+
+        //ip
+        String userIp;
+        if (request.getHeader("x-forwarded-for") == null) {
+            userIp = request.getRemoteAddr();
+        } else {
+            userIp = request.getHeader("x-forwarded-for");
+        }
+        log.info("ip={}", request.getRemoteAddr());
+
+
+
+
+        System.out.println();
+
         //获取列表页
         List<Seckill> seckillList = seckillService.getSeckillList();
         model.addAttribute("list", seckillList);
