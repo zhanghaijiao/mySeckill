@@ -19,6 +19,10 @@
                 <%--展示倒计时--%>
                 <span class="glyphicon" id="seckillBox"></span>
             </h2>
+
+            <form action="?key=知识产权&otype=dtitle">
+                <a href="/xixi">下一页</a>
+            </form>
         </div>
     </div>
 
@@ -73,7 +77,7 @@
         seckill.detail.init({
             seckillId:${seckill.seckillId},
             startTime:${seckill.startTime.time},
-            entTime:${seckill.endTime.time}
+            endTime:${seckill.endTime.time}
         })
     });
 </script>
