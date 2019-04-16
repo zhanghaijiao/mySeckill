@@ -19,7 +19,9 @@ var seckill = {
         //时间的判断
         if (nowTime > endTime) {
             //秒杀结束
+            console.log("秒杀结束。")
             seckillBox.html("秒杀结束！");
+            //seckillBox.show();
         } else if (nowTime < startTime) {
             //秒杀未开始,计时事件绑定
             var killTime = new Date(startTime + 1000);
