@@ -73,3 +73,11 @@ INDEX `idx_end_time`(`end_time`),
 INDEX `idx_create_time`(`create_time`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 1000 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '秒杀库存表' ROW_FORMAT = Compact;
 
+CREATE TABLE success_killed  (
+  `seckill_id` bigint NOT NULL COMMENT '秒杀商品id',
+  `user_phone` bigint NOT NULL COMMENT '用户手机号',
+  `state` tinyint NOT NULL DEFAULT -1 COMMENT '状态标识  -1标识无效  0标识成功  1已付款  2 已发货',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+PRIMARY KEY (`seckill_id`, `user_phone`),
+INDEX `idx_create_time`(`create_time`)
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '秒杀成功明细' ROW_FORMAT = Compact;
