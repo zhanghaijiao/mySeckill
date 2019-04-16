@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=utf-8" language="java" %>
 <%@include file="common/tag.jsp"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -32,7 +32,7 @@
                       <td><fmt:formatDate value="${sk.startTime}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
                       <td><fmt:formatDate value="${sk.endTime}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
                       <td><fmt:formatDate value="${sk.createTime}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
-                      <td><a class="btn btn-info" href="/seckill/${sk.seckillId}/detail" target="_blank">link</a></td>
+                      <td><a class="btn btn-info" href="/seckill/${sk.seckillId}/detail?知识产权" target="_blank">link</a></td>
                   </tr>     
                   </c:forEach>
                   
